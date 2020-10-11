@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
+  
   <head>
     <base target="_top">
-
     <script>
     function getlog(){
 
@@ -11,52 +11,42 @@
       // 開いているブラウザ
       let browser;
       if(userAgent.indexOf('msie') != -1 ||　userAgent.indexOf('trident') != -1) {
-      browser='Internet Explorer';
+        browser = 'Internet Explorer';
       } else if(userAgent.indexOf('edge') != -1) {
-      browser='Edge';
+        browser = 'Edge';
       } else if(userAgent.indexOf('chrome') != -1) {
-      browser='Google Chrome';
+        browser = 'Google Chrome';
       } else if(userAgent.indexOf('safari') != -1) {
-      browser='Safari';
+        browser = 'Safari';
       } else if(userAgent.indexOf('firefox') != -1) {
-      browser='FireFox';
+        browser = 'FireFox';
       } else if(userAgent.indexOf('opera') != -1) {
-      browser='Opera';
+        browser = 'Opera';
       } else {
-      browser='不明';
+        browser = '不明';
       }
     
       // 閲覧者のOS
-      const os= navigator.platform; 
+      const os = navigator.platform; 
       
       // 画面スクリーン(高さ)
-      const height= screen.height;
+      const height = screen.height;
       
       // 画面スクリーン(幅)
-      const width= screen.width;
+      const width = screen.width;
     
       // スクリプトを実行
       google.script.run.setlog(browser,os,height,width);
+    }
 
     </script>
 
-
   </head>
-  <body onload="getlog()">
-    
-<!--    <div id="viewCount_area"></div>    -->
-    
+  
+  <body onload='getlog()'>
+  
+    閲覧数 ： <?= count ?>人
+  
   </body>
-  
-<!--
-  <script>
-  
-      const viewCount = google.script.run.viewCount();
-      document.getElementById('viewCount_area').textContent = viewCount ;
-      
-  </script>
---> 
  
 </html>
-
-
