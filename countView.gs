@@ -1,19 +1,16 @@
 // https://script.google.com/macros/s/AKfycbwNJuBRQfFkZrdoBKiVEBxP6V3Lt7FioHUbsygUo8UCNjoKsvFk/exec
 
 // スプレットシートを取得　　
-const sheetId   = "1cSCEH3YHRQsRxrN1T_rKTS3CY5R49nDM0-1ItlTWeh0";             // 情報を書込むスプレットシートID
-const sheet     = SpreadsheetApp.openById(sheetId).getSheetByName("ログ");     // シート名 ログの情報を取得
-const sheetDay  = SpreadsheetApp.openById(sheetId).getSheetByName("ログ（週）");  // シート名 ログ（週）の情報を取得
-const sheetWeek = SpreadsheetApp.openById(sheetId).getSheetByName("ログ（月）");  // シート名 ログ（月）の情報を取得
-const sheetYear = SpreadsheetApp.openById(sheetId).getSheetByName("ログ（年）");  // シート名 ログ（年）の情報を取得
+const sheetId    = "1cSCEH3YHRQsRxrN1T_rKTS3CY5R49nDM0-1ItlTWeh0";              // 情報を書込むスプレットシートID
+const sheet      = SpreadsheetApp.openById(sheetId).getSheetByName("ログ");      // シート名 ログの情報を取得
+const sheetWeek  = SpreadsheetApp.openById(sheetId).getSheetByName("ログ（週）");   // シート名 ログ（週）の情報を取得
+const sheetMonth = SpreadsheetApp.openById(sheetId).getSheetByName("ログ（月）");   // シート名 ログ（月）の情報を取得
+const sheetTotal = SpreadsheetApp.openById(sheetId).getSheetByName("ログ（合計）"); // シート名 ログ（年）の情報を取得
 
 // シートの最終行を取得
-const _lastRow  = sheet.getRange("A:A").getValues(); // スプレットシートの最終行(空白を含む)を取得
-const lastRow   = _lastRow.filter(String).length;    //空白の要素を除いた長さを取得
-
-const t         = HtmlService.createTemplateFromFile('index');
-
-
+const _lastRow  = sheet.getRange("A:A").getValues(); // ログシートの最終行(空白を含む)を取得
+const lastRow   = _lastRow.filter(String).length;    // ログシートの空白の要素を除いた長さを取得
+const t = HtmlService.createTemplateFromFile('index');
 
 // googleサイトが開かれた時に実行
 function doGet() {    
