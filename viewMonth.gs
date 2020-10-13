@@ -6,10 +6,10 @@
 function ViewMonth() {
   
   // ログ(週)シートの最終行を取得
-  const lastRowWeek = sheetWeek.getRange("A:A").getValues().filter(String).length;
+  const lastRow = sheetWeek.getRange("A:A").getValues().filter(String).length;
 
   // ログシートのデータを取得
-  const date = sheetWeek.getRange(2, 1, lastRowWeek, 6);
+  const date = sheetWeek.getRange(2, 1, lastRow, 6);
   const logDate = date.getValues();
   
   // ログ（週）シートの最終行に取得した情報を書込
