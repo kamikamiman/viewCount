@@ -5,12 +5,9 @@
 // 
 function LogTotal() {
   
-  // ログ集計シートの最終行を取得
-  const lastRow = sheetLog.getRange("A:A").getValues().filter(String).length;
 
   // ログ集計シートのデータを取得
-  const data = sheetLog.getRange(2, 1, lastRow, 2);
-  const logDate = data.getValues();
+  const logDate = sheetLog.getRange(2, 1, lastRowLog, 2).getValues();
   
   // 本日の日付を取得
   const date  = new Date();

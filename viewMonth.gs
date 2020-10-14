@@ -4,20 +4,16 @@
    ================================ */
 
 function ViewMonth() {
-  
-  // ログ(週)シートの最終行を取得
-  const lastRow = sheetWeek.getRange("A:A").getValues().filter(String).length;
 
-  // ログシートのデータを取得
-  const date = sheetWeek.getRange(2, 1, lastRow, 6);
-  const logDate = date.getValues();
+  // ログ(週)シートのデータを取得
+  const _getData = sheetWeek.getRange(2, 1, lastRowWeek, 6);
+  const getData = _getData.getValues();
   
-  // ログ（週）シートの最終行に取得した情報を書込
-  logDate.forEach( el => {
-    sheetMonth.appendRow(el);
-  });
-
-  // ログシートに記入された情報を削除する。
-  date.clear();
+  // ログ(月)シートに取得したデータを書込
+  const _setData = sheetMonth.getRange(lastRowMonth + 1, 1, lastRowWeek, 6);
+  const setData = _setData.setValues(getData);
+  
+  // ログシートに記入された情報を削除
+  _getData.clear();
   
 }

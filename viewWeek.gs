@@ -6,15 +6,14 @@
 function ViewWeek() {
 
   // ログシートのデータを取得
-  const date = sheet.getRange(2, 1, lastRow, 6);
-  const logDate = date.getValues();
+  const _getData = sheet.getRange(2, 1, lastRow, 6);
+  const getData = _getData.getValues();
   
-  // ログ（週）シートの最終行に取得した情報を書込
-  logDate.forEach( el => {
-    sheetWeek.appendRow(el);
-  });
-
-  // ログシートに記入された情報を削除する。
-  date.clear();
+  // ログ(週)シートに取得したデータを書込
+  const _setData = sheetWeek.getRange(lastRowWeek + 1, 1, lastRow, 6);
+  const setData = _setData.setValues(getData);
+  
+  // ログシートに記入された情報を削除
+  _getData.clear();
   
 }
